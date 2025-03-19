@@ -105,28 +105,32 @@ Aqui, você poderá visualizar e testar todos os endpoints da API de forma intui
 Crie um `docker-compose.yml` para subir a aplicação e o banco:
 
 ```yaml
-version: '3.8'
-
 services:
-  db:
-    image: mariadb:latest
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: 1234
-      MYSQL_DATABASE: todolist
-    ports:
-      - "3306:3306"
-
-  app:
-    build: .
-    depends_on:
-      - db
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mariadb://db:3306/todolist
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: 1234
+  todoapp-spring:
+    image: todoapp-spring
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
+    environment:
+      - DB_URL=${DB_URL}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+    container_name: todoapp-spring
+    depends_on:
+      - todoapp-mariadb
+
+  todoapp-mariadb:
+    image: mariadb:10.5
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+    ports:
+      - "3306:3306"
+    container_name: todoapp-mariadb
+
 ```
 
 Para rodar:
