@@ -9,6 +9,7 @@ Este é um projeto simples de To-Do List desenvolvido com Spring Boot. A API per
 - Spring Data JPA
 - MariaDB
 - Docker
+- Swagger
 
 ## 📦 Como Rodar o Projeto
 
@@ -91,6 +92,13 @@ Você pode testar a API utilizando o [Postman](https://www.postman.com/) ou via 
 ```sh
 curl -X GET http://localhost:8080/tasks
 ```
+
+## 🌐 Documentação Interativa com Swagger
+A documentação interativa da API pode ser acessada na seguinte URL após rodar o projeto:
+
+http://localhost:8080/swagger-ui.html
+
+Aqui, você poderá visualizar e testar todos os endpoints da API de forma intuitiva.
 
 ## 🐳 Rodando com Docker
 
