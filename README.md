@@ -16,8 +16,8 @@ Este é um projeto simples de To-Do List desenvolvido com Spring Boot. A API per
 ### 1️⃣ Clonar o Repositório
 
 ```sh
-git clone https://github.com/seu-usuario/todo-list-spring.git
-cd todo-list-spring
+git clone https://github.com/victorashino/ToDoList-SpringBoot-Java.git
+cd ToDoList-SpringBoot-Java
 ```
 
 ### 2️⃣ Configurar o Banco de Dados
@@ -25,9 +25,9 @@ cd todo-list-spring
 Crie um banco de dados no MariaDB e configure o `application.properties`:
 
 ```properties
-spring.datasource.url=jdbc:mariadb://localhost:3306/todolist
-spring.datasource.username=root
-spring.datasource.password=1234
+spring.datasource.url=${DB_URL}
+spring.datasource.username=${DB_USERNAME}
+spring.datasource.password=${DB_PASSWORD}
 spring.jpa.hibernate.ddl-auto=update
 ```
 
